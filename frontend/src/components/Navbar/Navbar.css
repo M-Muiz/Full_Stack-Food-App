@@ -1,15 +1,15 @@
-.navbar{
+.navbar {
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar .logo{
-     width: 150px;
+.navbar .logo {
+    width: 150px;
 }
 
-.navbar-menu{
+.navbar-menu {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -18,13 +18,17 @@
     list-style: none;
 }
 
-.navbar-right{
+.navbar-menu li {
+    cursor: pointer;
+}
+
+.navbar-right {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
-.navbar button{
+.navbar button {
     background: transparent;
     font-size: 16px;
     color: #49557e;
@@ -35,6 +39,25 @@
     transition: 0.3s;
 }
 
-.navbar button:is(:hover, :focus){
+.navbar button:is(:hover, :focus) {
     background-color: #fff4f2;
+}
+
+.navbar .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557e;
+}
+
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 5px;
 }
