@@ -3,9 +3,9 @@ import { assets } from "../../assets/assets"
 import { useState } from "react"
 import {Link} from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
 
-    const [menu, setMenu] = useState("home")
+    const [menu, setMenu] = useState("home");
 
     return (
         <div className="navbar">
@@ -22,7 +22,7 @@ const Navbar = () => {
                     <img src={assets.basket_icon} alt="basket" />
                     <div className="dot"></div>
                 </div>
-                <button>Sign In</button>
+                <button onClick={() => setShowLogin(true)}>Log In</button>
             </div>
         </div>
     )
