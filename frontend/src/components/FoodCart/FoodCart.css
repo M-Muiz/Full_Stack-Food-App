@@ -43,3 +43,33 @@
     font-weight: 500;
     margin: 10px 0;
 }
+
+.food-cart-image-container{
+    position: relative;
+}
+
+.food-cart-image-container .add{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.food-cart-counter{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.food-cart-counter img{
+    width: 30px;
+    cursor: pointer;
+}
