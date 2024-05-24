@@ -51,3 +51,15 @@ color: white ;
     background-color: grey;
     border: none;
 }
+
+@media screen and (max-width: 750px) {
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    .footer-copyright{
+        width: 100%;
+        text-align: center;
+    }
+}
