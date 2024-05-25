@@ -4,11 +4,11 @@ import { StoreContext } from '../../context/StoreContext'
 
 const PlaceOrder = () => {
 
-const {getCartTotal} = useContext(StoreContext)
+  const { getCartTotal } = useContext(StoreContext)
 
   return (
     <form className='place-order'>
-      <div className="place-porder-left">
+      <div className="place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
           <input type="text" placeholder="First Name" />
@@ -28,7 +28,7 @@ const {getCartTotal} = useContext(StoreContext)
         <input type="text" placeholder='Phone Number' />
 
       </div>
-      <div className="place-porder-right">
+      <div className="place-order-right">
         <div className="cart-total">
           <h2>Cart Total</h2>
           <div>
