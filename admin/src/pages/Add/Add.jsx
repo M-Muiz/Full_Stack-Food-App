@@ -3,6 +3,7 @@ import './Add.css'
 import { assets } from "../../assets/assets"
 import axios from "axios"
 import { toast } from 'react-toastify'
+import { url } from "../../utils/api"
 
 const Add = () => {
 
@@ -14,8 +15,6 @@ const Add = () => {
     price: "",
   });
 
-  const url = "http://localhost:4000";
-
   const onChnageHandler = (event) => {
     setData((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
@@ -25,7 +24,7 @@ const Add = () => {
     event.preventDefault();
 
     const formData = new FormData();
-    // formData.append("name", data.name)
+    formData.append("name", data.name)
     formData.append("description", data.description)
     formData.append("price", Number(data.price))
     formData.append("category", data.category)
