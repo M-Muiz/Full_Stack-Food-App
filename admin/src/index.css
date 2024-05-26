@@ -38,3 +38,7 @@ hr {
 input:is(:focus) {
   outline-color: tomato;
 }
+
+.cursor {
+  cursor: pointer;
+}
