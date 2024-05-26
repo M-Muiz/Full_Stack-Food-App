@@ -35,6 +35,10 @@
     padding: 10px;
 }
 
+.add-product-description textarea:focus{
+    outline-color: tomato;
+}
+
 .add-btn{
     border-radius: 4px;
     width: max(40%, 300px);
