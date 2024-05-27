@@ -26,7 +26,7 @@ const List = () => {
       await getFoods();
       if (res.data.success) {
         toast.success(res.data.message)
-      }else{
+      } else {
         toast.error("Error")
       }
     } catch (error) {
