@@ -33,13 +33,15 @@ const LoginPopup = ({ setShowLogin }) => {
         }
 
         const res = await axios.post(newUrl, data);
-        console.log(res.data.message)
+        console.log("res", res)
+
         if (res.data.success) {
             setToken(res.data.token)
             localStorage.setItem("token", res.data.token)
             setShowLogin(false);
             toast.success(res.data.message)
-        } else {
+         } 
+        else {
             toast.error(res.data.message)
         }
     };
