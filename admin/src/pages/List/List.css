@@ -17,6 +17,16 @@
     border-radius: 4px;
 }
 
+.btn{
+    padding: 5px 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
 @media screen and (max-width: 600px) {
     .list-table-format{
         grid-template-columns: 1fr 3fr 1fr;
