@@ -34,7 +34,14 @@ const removeFromCart = async (req, res) => {
 };
 
 const getCartItems = async (req, res) => {
-
+    try {
+        let userData = await useModel.findById(req.body.userId);
+        let cartData = await userData.cartData;
+        res.json({ success: true, cartData })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Failed to get cart items" })
+    }
 };
 
 export { addToCart, removeFromCart, getCartItems }
