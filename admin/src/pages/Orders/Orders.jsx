@@ -47,8 +47,8 @@ const Orders = ({ url }) => {
               </div>
               <p className="order-item-phone">{order.address.phone}</p>
             </div>
-            <p>Items: {order.items.length}</p>
-            <p>Total: ${order.amount}</p>
+            <p><span className="bold">Items:</span> {order.items.length}</p>
+            <p><span className="bold">Total: </span> ${order.amount}</p>
             <select >
               <option value="Food Processing">Food Processing</option>
               <option value="Out For Delivery">Out For Delivery</option>
