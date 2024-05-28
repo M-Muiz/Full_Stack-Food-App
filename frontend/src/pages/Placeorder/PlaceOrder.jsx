@@ -20,6 +20,7 @@ const PlaceOrder = () => {
     phone: "",
   });
 
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setData((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -27,6 +28,8 @@ const PlaceOrder = () => {
 
   const placeorder = async (event) => {
     event.preventDefault();
+    toast.loading("Loading...")
+    setLoading(true);
     let orderItems = [];
     food_list.map((item) => {
       if (cartItem[item._id]) {
@@ -43,9 +46,13 @@ const PlaceOrder = () => {
 
     let res = await axios.post(`${url}api/order/place`, orderData, { headers: { token } });
     if (res.data.success) {
+      toast.dismiss()
+      setLoading(false);
       const { session_url } = res.data;
       window.location.replace(session_url);
     } else {
+      toast.dismiss()
+      setLoading(false);
       toast.error(res.data.message)
     }
   };
@@ -91,7 +98,8 @@ const PlaceOrder = () => {
               <b>${getCartTotal() === 0 ? 0 : getCartTotal() + 2}</b>
             </div>
           </div>
-          <button type="submit">PROCEED TO PAYMENT</button>
+          <button disabled={loading} type="submit">PROCEED TO PAYMENT
+          </button>
         </div>
       </div>
     </form>
