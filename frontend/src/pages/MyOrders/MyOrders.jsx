@@ -3,6 +3,7 @@ import './MyOrders.css'
 import { StoreContext } from "../../context/StoreContext";
 import axios from 'axios';
 import { assets } from "../../assets/assets"
+import { toast } from 'react-toastify';
 
 const MyOrders = () => {
 
@@ -13,7 +14,11 @@ const MyOrders = () => {
 
     const getMyOrders = async () => {
         const res = await axios.post(`${url}api/order/userorders`, {}, { headers: { token } });
-        setData(res.data.data);
+        if (res.data.data.length === 0) {
+            toast.error("There are no orders yet")
+        } else {
+            setData(res.data.data);
+        }
     }
 
     useEffect(() => {
@@ -30,10 +35,10 @@ const MyOrders = () => {
                     return (
                         <div className="my-orders-order" key={ind}>
                             <img src={assets.parcel_icon} alt="orders" />
-                            <p>{order.items.map((item, ind)=>{
-                                if(ind === order.items.length - 1){
+                            <p>{order.items.map((item, ind) => {
+                                if (ind === order.items.length - 1) {
                                     return item.name + " x " + item.quantity
-                                }else{
+                                } else {
                                     return item.name + " x " + item.quantity + ", "
                                 }
                             })}</p>

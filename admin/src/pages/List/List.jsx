@@ -1,10 +1,9 @@
 import React, { useDebugValue, useEffect, useState } from 'react'
 import "./List.css"
-import { url } from "../../utils/api"
 import axios from "axios"
 import { toast } from "react-toastify"
 
-const List = () => {
+const List = ({url}) => {
 
   const [list, setList] = useState([]);
 

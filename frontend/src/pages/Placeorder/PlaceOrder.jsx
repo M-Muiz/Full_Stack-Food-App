@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./PlaceOrder.css"
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom"; 
 
 const PlaceOrder = () => {
 
@@ -56,6 +57,20 @@ const PlaceOrder = () => {
       toast.error(res.data.message)
     }
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      toast.error("Please login first")
+      navigate("/cart")
+    }
+    else if (getCartTotal() === 0) {
+      toast.error("Cart is empty")
+      navigate("/cart")
+    }
+  }, [token])
+
 
   return (
     <form onSubmit={placeorder} className='place-order'>

@@ -83,5 +83,15 @@ const usersOrders = async (req, res) => {
     }
 };
 
+const listOrders = async (req, res) => {
+    try {
+        const orders = await orderModel.find({});
+        res.json({ success: true, data: orders });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Failed to get orders" });
+    }
+};
 
-export { placeOrder, verfiyOrder, usersOrders }
+
+export { placeOrder, verfiyOrder, usersOrders, listOrders }
