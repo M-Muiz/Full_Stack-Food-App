@@ -37,17 +37,16 @@ const placeOrder = async (req, res) => {
                 product_data: {
                     name: "Delivery Charges"
                 },
-                unit_amout: 2 * 100
+                unit_amount: 2 * 100
             },
             quantity: 1
         })
 
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ["card"],
-            line_items,
+            line_items: line_items,
             mode: "payment",
             success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
-            cancel: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
+            cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
         })
 
         res.json({ success: true, session_url: session.url, message: "Order placed successfully" })
@@ -58,4 +57,21 @@ const placeOrder = async (req, res) => {
 };
 
 
-export { placeOrder }
+const verfiyOrder = async (req, res) => {
+    const { orderId, success } = req.body;
+    try {
+        if (success == "true") {
+            await orderModel.findByIdAndUpdate(orderId, { payment: true });
+            res.json({ success: true, message: "Payment successful" })
+        } else {
+            await orderModel.findByIdAndDelete(orderId);
+            res.json({ success: false, message: "Payment failed" })
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Failed to verify order" })
+    }
+}
+
+
+export { placeOrder, verfiyOrder }
