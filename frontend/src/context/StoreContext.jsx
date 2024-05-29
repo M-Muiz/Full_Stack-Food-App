@@ -4,6 +4,7 @@ import { toast } from "react-toastify"
 
 export const StoreContext = createContext(null);
 
+
 const StoreContextProvider = (props) => {
 
     const [cartItem, setCartItem] = useState({});
@@ -14,7 +15,7 @@ const StoreContextProvider = (props) => {
     const addToCart = async (itemId) => {
         if (!cartItem[itemId]) {
             setCartItem((prev) => ({ ...prev, [itemId]: 1 }));
-            toast.success("Item add from cart");
+            toast.success("Item add to cart")
         } else {
             setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
             toast.success("Item quantity increased");

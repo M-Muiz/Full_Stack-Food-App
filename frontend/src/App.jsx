@@ -21,7 +21,7 @@ const App = () => {
       {
         showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>
       }
-      <ToastContainer />
+      <ToastContainer autoClose={1000} pauseOnHover={false} />
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
         <Routes>

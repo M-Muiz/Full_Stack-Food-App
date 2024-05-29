@@ -11,7 +11,7 @@ const FoodCart = ({ id, name, price, image, description }) => {
 
 
     return (
-        <div className='food-cart'>
+        <div key={id} className='food-cart'>
             <div className="food-cart-image-container">
                 <img className='food-cart-image' src={`${url}images/${image}`} alt="food-image" />
                 {
