@@ -7,7 +7,6 @@ import { assets } from "../../assets/assets";
 const Orders = ({ url }) => {
 
   const [orders, setOrders] = useState([]);
-  console.log(orders)
   const fetchOrders = async () => {
     const res = await axios(`${url}api/order/list`);
     if (res.data.success) {
@@ -16,6 +15,17 @@ const Orders = ({ url }) => {
       toast.error("Something went wrong");
     }
   };
+
+  const statusHandler = async (event, orderId) => {
+    const res = await axios.post(`${url}api/order/status`, { orderId, status: event.target.value });
+    if (res.data.success) {
+      await fetchOrders();
+    } else {
+      toast.error("Something went wrong");
+    }
+  };
+
+
   useEffect(() => {
     fetchOrders();
   }, [])
@@ -49,7 +59,7 @@ const Orders = ({ url }) => {
             </div>
             <p><span className="bold">Items:</span> {order.items.length}</p>
             <p><span className="bold">Total: </span> ${order.amount}</p>
-            <select >
+            <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
               <option value="Food Processing">Food Processing</option>
               <option value="Out For Delivery">Out For Delivery</option>
               <option value="Delivered">Delivered</option>
