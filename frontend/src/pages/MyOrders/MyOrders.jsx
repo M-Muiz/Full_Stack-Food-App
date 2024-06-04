@@ -10,8 +10,6 @@ const MyOrders = () => {
     const { url, token } = useContext(StoreContext);
     const [data, setData] = useState([]);
 
-    console.log(data)
-
     const getMyOrders = async () => {
         const res = await axios.post(`${url}api/order/userorders`, {}, { headers: { token } });
         if (res.data.data.length === 0) {
@@ -45,7 +43,7 @@ const MyOrders = () => {
                             <p>{order.amount}.00</p>
                             <p>Items: {order.items.length}</p>
                             <p><span>&#x25cf;</span> <b>{order.status}</b></p>
-                            <button>Track Order</button>
+                            <button onClick={getMyOrders}>Track Order</button>
                         </div>
                     )
                 })}
