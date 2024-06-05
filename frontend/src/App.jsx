@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import Navbar from './components/Navbar/Navbar'
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Cart from "./pages/Cart/Cart"
-import PlaceOrder from "./pages/Placeorder/PlaceOrder"
-import Footer from './components/Footer/Footer'
-import LoginPopup from './components/LoginPopup/LoginPopup'
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Cart from "./pages/Cart/Cart";
+import PlaceOrder from "./pages/Placeorder/PlaceOrder";
+import Footer from './components/Footer/Footer';
+import LoginPopup from './components/LoginPopup/LoginPopup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Verify from './pages/Verify/Verify'
-import MyOrders from './pages/MyOrders/MyOrders'
+import Verify from './pages/Verify/Verify';
+import MyOrders from './pages/MyOrders/MyOrders';
 
 const App = () => {
 
@@ -38,3 +38,6 @@ const App = () => {
 }
 
 export default App
+
+
+hel;pw 
