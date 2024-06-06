@@ -1,3 +1,4 @@
+import { uploadImageToCloudinary } from "../config/cloudinary.js";
 import foodModel from "../models/foodModel.js";
 import fs from "fs";
 
