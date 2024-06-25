@@ -25,7 +25,7 @@ app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
 app.get("/", (req, res) => {
-    res.send("Hello from server");
+    res.json("Hello from server");
 });
 
 
