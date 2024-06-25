@@ -19,7 +19,7 @@ connectDB();
 
 
 app.use("/api/food", foodRouter);
-app.use("/images", express.static("uploads"));
+// app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
@@ -32,7 +32,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 });
-
-
-// https://youtu.be/dImgZ_AH7uA
-// https://youtu.be/dImgZ_AH7uA
